@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hecho</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Fecha</th>
+                <td>{% if hecho.fecha %}{{ hecho.fecha|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ hecho.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Fuentes</th>
+                <td>{{ hecho.fuentes }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ hecho.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('hecho_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('hecho_edit', { 'id': hecho.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hecho list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Titulo</th>
+                <th>Fuentes</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hecho in hechos %}
+            <tr>
+                <td><a href="{{ path('hecho_show', { 'id': hecho.id }) }}">{{ hecho.fecha }}</a></td>
+                <td>{{ hecho.titulo }}</td>
+                <td>{{ hecho.fuentes }}</td>
+                <td>{{ hecho.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('hecho_show', { 'id': hecho.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('hecho_edit', { 'id': hecho.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('hecho_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

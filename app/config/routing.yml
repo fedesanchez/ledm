@@ -1,0 +1,11 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+app_hecho:
+    resource: "@AppBundle/Resources/config/routing/hecho.xml"
+    prefix:   /hecho
+
+app_tag:
+        resource: "@AppBundle/Resources/config/routing/tag.xml"
+        prefix:   /tag
