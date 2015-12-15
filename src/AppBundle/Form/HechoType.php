@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class HechoType extends AbstractType
 {
@@ -21,8 +23,12 @@ class HechoType extends AbstractType
             ->add('fecha', DateType::class)
             ->add('titulo')
             ->add('fuentes')
-            ->add('tags', CollectionType::class, array(
-              'entry_type' => TagType::class
+            ->add('tags', ChoiceType::class, array(
+              'choices' => array('In Stock' => true, 'Out of Stock' => false),
+            // always include this
+            'choices_as_values' => true
+
+
             ));
     }
 

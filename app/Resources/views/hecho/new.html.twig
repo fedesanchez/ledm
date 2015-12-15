@@ -1,25 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Hecho creation</h1>
+{% block contenido %}
+   
+   <div class="container">
+    
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+     {{ form_start(form) }}
 
-        <h3>Tags</h3>
-        <ul class="tags">
-            {# iterate over each existing tag and render its only field: name #}
-            {% for tag in form.tags %}
-                <li>{{ form_row(tag.nombre) }}</li>
-            {% endfor %}
-        </ul>
+            <div class="input-group">
+                {{ form_label(form.fecha) }}
+                {{ form_errors(form.fecha) }}
+                {{ form_widget(form.fecha) }}
+           </div>
 
-    {{ form_end(form) }}
+           <div class="input-group">
+                {{ form_label(form.titulo) }}
+                {{ form_errors(form.titulo,{'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.titulo) }}
+           </div>
 
+           <div class="input-group">
+                {{ form_label(form.fuentes) }}
+                {{ form_errors(form.fuentes) }}
+                {{ form_widget(form.fuentes) }}
+           </div>
+
+          
+            <input type="submit" value="Create" />
+       
+
+              
+
+
+
+        {{ form_end(form) }}
+
+         
+
+    </div>
+
+
+    
     <ul>
         <li>
-            <a href="{{ path('hecho_index') }}">Back to the list</a>
+            <a href="{{ path('hecho_index') }}">lista de hechos</a>
         </li>
     </ul>
+
+    
+
 {% endblock %}
+
+
+    

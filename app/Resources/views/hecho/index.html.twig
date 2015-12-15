@@ -1,32 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Hecho list</h1>
+{% block contenido %}
 
-    <table>
+ <div class="table-responsive">
+    <table class="table">
         <thead>
             <tr>
-                <th>Fecha</th>
-                <th>Titulo</th>
-                <th>Fuentes</th>
                 <th>Id</th>
+                <th>Fecha</th>
+                <th>Titulo</th>                
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for hecho in hechos %}
             <tr>
-                <td><a href="{{ path('hecho_show', { 'id': hecho.id }) }}">{{ hecho.fecha }}</a></td>
-                <td>{{ hecho.titulo }}</td>
-                <td>{{ hecho.fuentes }}</td>
-                <td>{{ hecho.id }}</td>
+                 <td><a href="{{ path('hecho_show', { 'id': hecho.id }) }}">{{ hecho.id }}</a></td>
+                <td>{{ hecho.fecha|date('d-m-Y') }}</td>
+                <td>{{ hecho.titulo }}</td>                
+               
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('hecho_show', { 'id': hecho.id }) }}">show</a>
+                            <a href="{{ path('hecho_show', { 'id': hecho.id }) }}">ver</a>
                         </li>
                         <li>
-                            <a href="{{ path('hecho_edit', { 'id': hecho.id }) }}">edit</a>
+                            <a href="{{ path('hecho_edit', { 'id': hecho.id }) }}">editar</a>
                         </li>
                     </ul>
                 </td>
@@ -34,10 +33,10 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <ul>
         <li>
-            <a href="{{ path('hecho_new') }}">Create a new entry</a>
+            <a href="{{ path('hecho_new') }}">Agregar hecho</a>
         </li>
     </ul>
 {% endblock %}
