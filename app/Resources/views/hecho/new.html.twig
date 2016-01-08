@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block contenido %}
-   
+   {% block topic %}{% endblock %}
    <div class="container">
-    
+
 
      {{ form_start(form) }}
 
@@ -25,31 +25,28 @@
                 {{ form_widget(form.fuentes) }}
            </div>
 
-          
-            <input type="submit" value="Create" />
-       
 
-              
+            <input type="submit" value="Create" />
+
+
+
 
 
 
         {{ form_end(form) }}
 
-         
+
 
     </div>
 
 
-    
+
     <ul>
         <li>
             <a href="{{ path('hecho_index') }}">lista de hechos</a>
         </li>
     </ul>
 
-    
+
 
 {% endblock %}
-
-
-    

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Tag list</h1>
-
-    <table>
+{% block contenido %}
+{% block topic %}{% endblock %}
+<div class="table-responsive">
+    <table class="table">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('tag_show', { 'id': tag.id }) }}">show</a>
+                            <a href="{{ path('tag_show', { 'id': tag.id }) }}">ver</a>
                         </li>
                         <li>
-                            <a href="{{ path('tag_edit', { 'id': tag.id }) }}">edit</a>
+                            <a href="{{ path('tag_edit', { 'id': tag.id }) }}">editar</a>
                         </li>
                     </ul>
                 </td>
@@ -32,10 +32,11 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 
     <ul>
         <li>
-            <a href="{{ path('tag_new') }}">Create a new entry</a>
+            <a href="{{ path('tag_new') }}">Agregar tag</a>
         </li>
     </ul>
 {% endblock %}

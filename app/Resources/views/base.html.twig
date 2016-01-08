@@ -22,7 +22,7 @@
       <script src="js/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" src="/js/site.min.js"></script>
-        
+
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -33,7 +33,7 @@
     <!--HEADER-->
 
     <div class="docs-header">
-      
+
       <nav class="navbar navbar-default navbar-custom" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -54,7 +54,7 @@
           </div>
         </div>
       </nav>
-      
+      {% block topic %}
       <div class="topic">
         <div class="container">
             <div class="col-md-8">
@@ -69,6 +69,7 @@
           </div>
         </div>
       </div>
+      {% endblock %}
     </div>
 
     <!--header-->

@@ -74,7 +74,7 @@ class TagController extends Controller
     public function editAction(Request $request, Tag $tag)
     {
         $deleteForm = $this->createDeleteForm($tag);
-        $editForm = $this->createForm(new TagType(), $tag);
+        $editForm = $this->createForm(TagType::class, $tag);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block contenido %}
-
+{% block topic %}{% endblock %}
  <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Fecha</th>
-                <th>Titulo</th>                
+                <th>Titulo</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,8 +17,8 @@
             <tr>
                  <td><a href="{{ path('hecho_show', { 'id': hecho.id }) }}">{{ hecho.id }}</a></td>
                 <td>{{ hecho.fecha|date('d-m-Y') }}</td>
-                <td>{{ hecho.titulo }}</td>                
-               
+                <td>{{ hecho.titulo }}</td>
+
                 <td>
                     <ul>
                         <li>

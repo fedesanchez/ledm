@@ -37,9 +37,9 @@ class HechoController extends Controller
     public function newAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-       
+
         $hecho = new Hecho();
-        
+
         // dummy code - this is here just so that the Task has some tags
         // otherwise, this isn't an interesting example
         /*$tag1 = new Tag();
@@ -53,8 +53,8 @@ class HechoController extends Controller
         $form = $this->createForm(HechoType::class,$hecho);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {            
-            
+        if ($form->isSubmitted() && $form->isValid()) {
+
             dump($form);
             //$em->persist($hecho);
             //$em->flush();
@@ -63,7 +63,7 @@ class HechoController extends Controller
         }
 
         return $this->render('hecho/new.html.twig', array(
-            'hecho' => $hecho,           
+            'hecho' => $hecho,
             'form' => $form->createView(),
         ));
     }
@@ -89,7 +89,7 @@ class HechoController extends Controller
     public function editAction(Request $request, Hecho $hecho)
     {
         $deleteForm = $this->createDeleteForm($hecho);
-        $editForm = $this->createForm(new HechoType(), $hecho);
+        $editForm = $this->createForm(HechoType::class, $hecho);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
