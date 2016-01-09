@@ -20,13 +20,18 @@ class Hecho
     /**
      * @var string
      */
+    private $imagen;
+
+    /**
+     * @var string
+     */
     private $fuentes;
 
     /**
      * @var integer
      */
     private $id;
-    
+
     private $tags;
 
 
@@ -81,6 +86,30 @@ class Hecho
     public function getTitulo()
     {
         return $this->titulo;
+    }
+
+    /**
+     * Set imagen
+     *
+     * @param string $imagen
+     *
+     * @return Hecho
+     */
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
+
+    /**
+     * Get imagen
+     *
+     * @return string
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
     }
 
     /**

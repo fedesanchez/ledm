@@ -39,25 +39,15 @@ class HechoController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $hecho = new Hecho();
-
-        // dummy code - this is here just so that the Task has some tags
-        // otherwise, this isn't an interesting example
-        /*$tag1 = new Tag();
-        $tag1->setNombre('uno');
-        $hecho->getTags()->add($tag1);
-        $tag2 = new Tag();
-        $tag2->setNombre('dos');
-        $hecho->getTags()->add($tag2);*/
-        // end dummy code
-
+        
         $form = $this->createForm(HechoType::class,$hecho);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            dump($form);
-            //$em->persist($hecho);
-            //$em->flush();
+
+            $em->persist($hecho);
+            $em->flush();
 
             return $this->redirectToRoute('hecho_show', array('id' => $hecho->getId()));
         }

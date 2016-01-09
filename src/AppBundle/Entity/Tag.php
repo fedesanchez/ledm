@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Tag
  */
@@ -13,15 +13,21 @@ class Tag
     private $nombre;
 
     /**
-     * @var string
-     */
-    private $descripcion;
-
-    /**
      * @var integer
      */
     private $id;
-  
+
+    private $hechos;
+
+    public function __construct()
+    {
+        $this->hechos = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->nombre;
+    }
 
     /**
      * Set nombre
@@ -47,29 +53,7 @@ class Tag
         return $this->nombre;
     }
 
-    /**
-     * Set descripcion
-     *
-     * @param string $descripcion
-     *
-     * @return Tag
-     */
-    public function setDescripcion($descripcion)
-    {
-        $this->descripcion = $descripcion;
 
-        return $this;
-    }
-
-    /**
-     * Get descripcion
-     *
-     * @return string
-     */
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
 
     /**
      * Get id
@@ -79,5 +63,9 @@ class Tag
     public function getId()
     {
         return $this->id;
+    }
+
+    public function gethechos(){
+      return $this->hechos;
     }
 }

@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 
 class HechoType extends AbstractType
@@ -21,15 +22,15 @@ class HechoType extends AbstractType
     {
         $builder
             ->add('fecha', DateType::class)
+            ->add('imagen')
             ->add('titulo')
             ->add('fuentes')
-            ->add('tags', ChoiceType::class, array(
-              'choices' => array('In Stock' => true, 'Out of Stock' => false),
-            // always include this
-            'choices_as_values' => true
+            ->add('tags', EntityType::class, array(
+              'class' => 'AppBundle\Entity\Tag',
+              'multiple'=>true,
+              'expanded'=>false
+        ));
 
-
-            ));
     }
 
     /**

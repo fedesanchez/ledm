@@ -2,41 +2,47 @@
 
 {% block contenido %}
 {% block topic %}{% endblock %}
- <div class="table-responsive">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fecha</th>
-                <th>Titulo</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for hecho in hechos %}
-            <tr>
-                 <td><a href="{{ path('hecho_show', { 'id': hecho.id }) }}">{{ hecho.id }}</a></td>
-                <td>{{ hecho.fecha|date('d-m-Y') }}</td>
-                <td>{{ hecho.titulo }}</td>
+  <div class="container">
 
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('hecho_show', { 'id': hecho.id }) }}">ver</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('hecho_edit', { 'id': hecho.id }) }}">editar</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
+     <div class="panel table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Fecha</th>
+                    <th>Titulo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for hecho in hechos %}
+                <tr>
+                     <td><a href="{{ path('hecho_show', { 'id': hecho.id }) }}">{{ hecho.id }}</a></td>
+                    <td>{{ hecho.fecha|date('d-m-Y') }}</td>
+                    <td>{{ hecho.titulo }}</td>
+
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('hecho_show', { 'id': hecho.id }) }}">ver</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('hecho_edit', { 'id': hecho.id }) }}">editar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+ </div>
+
     <ul>
         <li>
             <a href="{{ path('hecho_new') }}">Agregar hecho</a>
         </li>
     </ul>
+
 {% endblock %}

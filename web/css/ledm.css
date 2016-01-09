@@ -1,0 +1,16 @@
+.principal{
+  height: auto;
+}
+
+.fuentes{
+  min-height: 300px;
+}
+.panel {
+  margin-top: 20px;
+}
+
+.input-group {
+    border-collapse: separate;
+    display: inherit;
+    position: relative;
+}

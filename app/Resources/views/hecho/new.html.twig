@@ -3,39 +3,68 @@
 {% block contenido %}
    {% block topic %}{% endblock %}
    <div class="container">
+       <div class="form-group">
+
+        <div class="row">
+             {{ form_start(form) }}
+
+                <div class="col-md-10">
+                  <div class="panel panel-default">
+
+                  <div class="panel-body">
+
+                    <div class="input-group">
+                        {{ form_label(form.fecha) }}
+                        {{ form_errors(form.fecha) }}
+                        {{ form_widget(form.fecha,{'attr': {'class': ''}}) }}
+                   </div>
+
+                   <div class="input-group">
+                        {{ form_label(form.titulo) }}
+                        {{ form_errors(form.titulo) }}
+                        {{ form_widget(form.titulo,{'attr': {'class': 'form-control'}}) }}
+                   </div>
+
+                   <div class="input-group">
+                        {{ form_label(form.imagen) }}
+                        {{ form_errors(form.imagen) }}
+                        {{ form_widget(form.imagen,{'attr': {'class': 'form-control'}}) }}
+                   </div>
+
+                   <div class="input-group">
+                        {{ form_label(form.fuentes) }}
+                        {{ form_errors(form.fuentes) }}
+                        {{ form_widget(form.fuentes,{'attr': {'class': 'form-control fuentes'}}) }}
+                   </div>
+
+                  </div>
+
+                </div>
 
 
-     {{ form_start(form) }}
+                </div>
 
-            <div class="input-group">
-                {{ form_label(form.fecha) }}
-                {{ form_errors(form.fecha) }}
-                {{ form_widget(form.fecha) }}
-           </div>
+                <div class="col-md-2">
 
-           <div class="input-group">
-                {{ form_label(form.titulo) }}
-                {{ form_errors(form.titulo,{'attr': {'class': 'form-control'}}) }}
-                {{ form_widget(form.titulo) }}
-           </div>
+                  <div class="input-group">
+                       {{ form_label(form.tags) }}
+                       {{ form_errors(form.tags) }}
+                       {{ form_widget(form.tags,{ 'attr': {'class': 'selecter_5'} }) }}
+                  </div>
 
-           <div class="input-group">
-                {{ form_label(form.fuentes) }}
-                {{ form_errors(form.fuentes) }}
-                {{ form_widget(form.fuentes) }}
-           </div>
+                </div>
 
 
-            <input type="submit" value="Create" />
+        </div>
+        <div class="row">
 
+                <input class="btn btn-default" type="submit" value="Guardar" />
 
+                {{ form_end(form) }}
 
+        </div>
 
-
-
-        {{ form_end(form) }}
-
-
+        </div>
 
     </div>
 

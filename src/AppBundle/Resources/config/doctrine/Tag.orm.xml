@@ -9,10 +9,6 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="descripcion" type="text" column="descripcion" length="16777215" nullable="true">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
+    <many-to-many field="hechos" mapped-by="tags" target-entity="Hecho" cascade="persist"></many-to-many>
   </entity>
 </doctrine-mapping>
