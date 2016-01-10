@@ -26,6 +26,7 @@ class TagController extends Controller
 
         return $this->render('tag/index.html.twig', array(
             'tags' => $tags,
+            'current'=>'',
         ));
     }
 
@@ -41,14 +42,21 @@ class TagController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($tag);
-            $em->flush();
+            try {
+              dump("entrp");
+              $em->persist($tag);
+              $em->flush();
+            } catch (Exception $e) {
+              $this->context->addViolation($e->getMessage());
+            }
 
-            return $this->redirectToRoute('tag_show', array('id' => $tag->getId()));
+
+            return $this->redirectToRoute('tag_index', array('id' => $tag->getId()));
         }
 
         return $this->render('tag/new.html.twig', array(
             'tag' => $tag,
+            'current'=>'',
             'form' => $form->createView(),
         ));
     }
@@ -63,6 +71,7 @@ class TagController extends Controller
 
         return $this->render('tag/show.html.twig', array(
             'tag' => $tag,
+            'current'=>'',
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -87,6 +96,7 @@ class TagController extends Controller
 
         return $this->render('tag/edit.html.twig', array(
             'tag' => $tag,
+            'current'=>'',
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

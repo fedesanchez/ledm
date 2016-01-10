@@ -14,3 +14,12 @@
     display: inherit;
     position: relative;
 }
+
+.imagen{
+  width: 64px;
+  height: 64px;
+}
+
+.contenido{
+  min-height: 400px !important;
+}

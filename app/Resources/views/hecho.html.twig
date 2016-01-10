@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+
+{% block contenido %}
+{% block topic %}{% endblock %}
+
+    <div class="row">
+
+
+
+      <div class="col-md-12">
+        <div class="jumbotron">
+
+          <div class="jumbotron-contents">
+
+          <blockquote>
+                  <h2>{{hecho.titulo}}</h2>
+                  <small>{{hecho.fecha | date("d-m-Y") }}</small>
+          </blockquote>
+
+
+
+            <p>
+              {{hecho.resumen}}
+            </p>
+            <div class="jumbotron-photo"><img src="{{hecho.imagen}}"></div>
+            <br/>
+            <p>
+              {{hecho.fuentes}}
+            </p>
+
+            <p>
+              {% for tag in hecho.tags%}
+              <a class="btn btn-primary" href="#">{{ tag.nombre }}</a>              
+              {% endfor%}
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+
+		</div>
+
+{% endblock %}

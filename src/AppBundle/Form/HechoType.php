@@ -23,7 +23,9 @@ class HechoType extends AbstractType
         $builder
             ->add('fecha', DateType::class)
             ->add('imagen')
+            ->add('publicado')
             ->add('titulo')
+            ->add('resumen')
             ->add('fuentes')
             ->add('tags', EntityType::class, array(
               'class' => 'AppBundle\Entity\Tag',

@@ -13,9 +13,62 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('home.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));
+      $em = $this->getDoctrine()->getManager();
+
+      $hechos = $em->getRepository('AppBundle:Hecho')->findAll();
+
+      return $this->render('home.html.twig', array(
+          'hechos' => $hechos,
+          'current'=>'timeline',
+      ));
     }
+
+
+    /**
+     * @Route("/mostrar/{fecha}/{titulo}", name="mostrar")
+     */
+    public function mostrarAction($fecha,$titulo)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $hechos = $em->getRepository('AppBundle:Hecho')->findAll();
+
+      foreach ($hechos as $hecho) {
+        if( $titulo == $hecho->getSlug() && $fecha == $hecho->getFecha()->format('d-m-Y')) $item=$hecho;
+      }
+
+      if(!$item){
+        echo "error:";
+
+      }
+
+      return $this->render('hecho.html.twig', array(
+          'hecho' => $item,
+          'current'=>'timeline',
+      ));
+    }
+
+
+    /**
+     * @Route("/historia", name="historia")
+     */
+    public function historiaAction()
+    {
+      return $this->render('historia.html.twig', array('current'=>'historia',));
+
+
+    }
+
+    /**
+     * @Route("/contacto", name="contacto")
+     */
+    public function contactoAction()
+    {
+      return $this->render('contacto.html.twig', array('current'=>'contacto',));
+
+
+    }
+
+
+
 }

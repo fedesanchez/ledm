@@ -20,9 +20,21 @@
                    </div>
 
                    <div class="input-group">
+                        {{ form_label(form.publicado) }}
+                        {{ form_errors(form.publicado) }}
+                        {{ form_widget(form.publicado,{'attr': {'class': ''}}) }}
+                   </div>
+
+                   <div class="input-group">
                         {{ form_label(form.titulo) }}
                         {{ form_errors(form.titulo) }}
                         {{ form_widget(form.titulo,{'attr': {'class': 'form-control'}}) }}
+                   </div>
+
+                   <div class="input-group">
+                        {{ form_label(form.resumen) }}
+                        {{ form_errors(form.resumen) }}
+                        {{ form_widget(form.resumen,{'attr': {'class': 'form-control resumen'}}) }}
                    </div>
 
                    <div class="input-group">

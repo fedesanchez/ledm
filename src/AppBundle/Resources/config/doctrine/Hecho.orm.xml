@@ -8,8 +8,14 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="fecha" type="date" column="fecha" nullable="false"/>
-    <field name="imagen" type="text" column="imagen" length="255" nullable="false"></field>
-    <field name="titulo" type="text" column="titulo" length="16777215" nullable="false">
+    <field name="publicado" type="boolean" column="publicado"/>
+    <field name="imagen" type="text" column="imagen" length="255" nullable="true"></field>
+    <field name="titulo" type="text" column="titulo" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="resumen" type="text" column="resumen" length="16777215" nullable="false">
       <options>
         <option name="fixed"/>
       </options>

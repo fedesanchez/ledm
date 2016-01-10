@@ -27,6 +27,7 @@ class HechoController extends Controller
 
         return $this->render('hecho/index.html.twig', array(
             'hechos' => $hechos,
+            'current'=>'',
         ));
     }
 
@@ -39,7 +40,7 @@ class HechoController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $hecho = new Hecho();
-        
+
         $form = $this->createForm(HechoType::class,$hecho);
         $form->handleRequest($request);
 
@@ -54,6 +55,7 @@ class HechoController extends Controller
 
         return $this->render('hecho/new.html.twig', array(
             'hecho' => $hecho,
+            'current'=>'',
             'form' => $form->createView(),
         ));
     }
@@ -68,6 +70,7 @@ class HechoController extends Controller
 
         return $this->render('hecho/show.html.twig', array(
             'hecho' => $hecho,
+            'current'=>'',
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -92,6 +95,7 @@ class HechoController extends Controller
 
         return $this->render('hecho/edit.html.twig', array(
             'hecho' => $hecho,
+            'current'=>'',
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

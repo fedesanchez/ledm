@@ -18,6 +18,16 @@ class Hecho
     private $titulo;
 
     /**
+     * @var boolean
+     */
+    private $publicado;
+
+    /**
+     * @var string
+     */
+    private $resumen;
+
+    /**
      * @var string
      */
     private $imagen;
@@ -88,6 +98,33 @@ class Hecho
         return $this->titulo;
     }
 
+
+    public function setPublicado($publicado)
+    {
+        $this->publicado = $publicado;
+
+        return $this;
+    }
+
+
+    public function getPublicado()
+    {
+        return $this->publicado;
+    }
+
+
+    public function setResumen($resumen)
+    {
+        $this->resumen = $resumen;
+
+        return $this;
+    }
+
+    public function getResumen()
+    {
+        return $this->resumen;
+    }
+
     /**
      * Set imagen
      *
@@ -151,5 +188,23 @@ class Hecho
    {
        return $this->tags;
    }
+
+   public function getSlug()
+   {
+     $str = $this->getTitulo();
+      // Lower case the string and remove whitespace from the beginning or end
+      $str = trim(strtolower($str));
+
+      // Remove single quotes from the string
+      //$str = str_replace("'", ”, $str);
+
+      // Every character other than a-z, 0-9 will be replaced with a single dash (-)
+      $str = preg_replace("/[^a-z0-9]+/", '-', $str);
+
+      // Remove any beginning or trailing dashes
+      $str = trim($str, '-');
+
+       return $str;
+    }
 
 }
