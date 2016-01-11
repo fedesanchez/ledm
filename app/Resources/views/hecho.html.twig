@@ -8,7 +8,7 @@
 
 
 
-      <div class="col-md-12">
+      <div class="col-md-8">
         <div class="jumbotron">
 
           <div class="jumbotron-contents">
@@ -30,18 +30,32 @@
             <p>
               {{hecho.fuentes | raw}}
             </p>
-
-            <p>
-              {% for tag in hecho.tags%}
-              <a class="btn btn-primary" href="#">{{ tag.nombre }}</a>              
-              {% endfor%}
-            </p>
+            
 
           </div>
         </div>
       </div>
 
+     <div class="col-md-4">
+       <div class="jumbotron">
+        <h4>Relacionados</h4>
+        <ul>
+          {% for rel in relacionados%}
+           <li>
+            <a href="/mostrar/{{rel.fecha|date("d-m-Y")}}/{{ rel.getSlug() }}">{{rel.titulo}}</a>
+           </li> 
+          {% endfor %}  
+        </ul>
+       </div> 
+     </div>
 
-		</div>
+	</div>
+  <div class="row">
+      <p>
+        {% for tag in hecho.tags%}
+        <a class="btn btn-primary" href="#">{{ tag.nombre }}</a>              
+        {% endfor%}
+      </p>
+  </div>
 
 {% endblock %}

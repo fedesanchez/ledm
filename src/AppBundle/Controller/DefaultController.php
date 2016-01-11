@@ -34,16 +34,26 @@ class DefaultController extends Controller
       $hechos = $em->getRepository('AppBundle:Hecho')->findAll();
 
       foreach ($hechos as $hecho) {
-        if( $titulo == $hecho->getSlug() && $fecha == $hecho->getFecha()->format('d-m-Y')) $item=$hecho;
+        if( $titulo == $hecho->getSlug() && $fecha == $hecho->getFecha()->format('d-m-Y')){
+          $item=$hecho;
+          break;
+        } 
       }
 
       if(!$item){
-        echo "error:";
+        echo "error: No se encontró el articulo buscado";
 
+      }
+      $relacionados=array();
+      //vuelvo a iterar para traer los relacionados
+      foreach ($hechos as $hecho) {
+        $encomun = array_intersect($item->getTags()->toArray(), $hecho->getTags()->toArray());
+        if($encomun && $hecho->getId()!==$item->getId())$relacionados[]=$hecho;
       }
 
       return $this->render('hecho.html.twig', array(
           'hecho' => $item,
+          'relacionados'=>$relacionados,
           'current'=>'timeline',
       ));
     }
