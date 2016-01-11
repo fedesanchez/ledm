@@ -9,3 +9,6 @@ app_hecho:
 app_tag:
         resource: "@AppBundle/Resources/config/routing/tag.xml"
         prefix:   /tag
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

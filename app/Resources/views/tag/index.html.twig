@@ -6,16 +6,16 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Nombre</th>
                 <th>Id</th>
+                <th>Nombre</th>                
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for tag in tags %}
             <tr>
-                <td><a href="{{ path('tag_show', { 'id': tag.id }) }}">{{ tag.nombre }}</a></td>
                 <td>{{ tag.id }}</td>
+                <td><a href="{{ path('tag_show', { 'id': tag.id }) }}">{{ tag.nombre }}</a></td>                
                 <td>
                     <ul>
                         <li>

@@ -50,7 +50,7 @@ class HechoController extends Controller
             $em->persist($hecho);
             $em->flush();
 
-            return $this->redirectToRoute('hecho_show', array('id' => $hecho->getId()));
+            return $this->redirectToRoute('hecho_index', array());
         }
 
         return $this->render('hecho/new.html.twig', array(
@@ -90,7 +90,7 @@ class HechoController extends Controller
             $em->persist($hecho);
             $em->flush();
 
-            return $this->redirectToRoute('hecho_edit', array('id' => $hecho->getId()));
+            return $this->redirectToRoute('hecho_edit', array());
         }
 
         return $this->render('hecho/edit.html.twig', array(

@@ -23,10 +23,12 @@
             <p>
               {{hecho.resumen}}
             </p>
+            {% if hecho.imagen | length > 1%}
             <div class="jumbotron-photo"><img src="{{hecho.imagen}}"></div>
+            {% endif %}
             <br/>
             <p>
-              {{hecho.fuentes}}
+              {{hecho.fuentes | raw}}
             </p>
 
             <p>
