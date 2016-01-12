@@ -23,3 +23,8 @@
 .contenido{
   min-height: 400px !important;
 }
+
+.timeline{
+  max-height: 600px !important;  
+
+}

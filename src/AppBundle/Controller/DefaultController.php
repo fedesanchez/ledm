@@ -15,11 +15,37 @@ class DefaultController extends Controller
     {
       $em = $this->getDoctrine()->getManager();
 
-      $hechos = $em->getRepository('AppBundle:Hecho')->findAll();
+      $hechos = $em->getRepository('AppBundle:Hecho')->findBy(
+          array(),
+          array('fecha'=>'desc'), 
+          10,
+          null
+      );
 
       return $this->render('home.html.twig', array(
           'hechos' => $hechos,
-          'current'=>'timeline',
+          'current'=>'',
+      ));
+    }
+
+    /**
+     * @Route("/timeline", name="timeline")
+     */
+    public function timelineAction(Request $request)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $hechos = $em->getRepository('AppBundle:Hecho')->findBy(
+          array(),
+          array('fecha'=>'desc'), 
+          null,
+          null
+      );
+
+
+      return $this->render('timeline.html.twig', array(
+          'hechos' => $hechos,
+          'current'=>'',
       ));
     }
 
@@ -54,7 +80,7 @@ class DefaultController extends Controller
       return $this->render('hecho.html.twig', array(
           'hecho' => $item,
           'relacionados'=>$relacionados,
-          'current'=>'timeline',
+          'current'=>'',
       ));
     }
 

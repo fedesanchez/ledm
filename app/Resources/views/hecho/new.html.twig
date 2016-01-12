@@ -16,7 +16,7 @@
                     <div class="input-group">
                         {{ form_label(form.fecha) }}
                         {{ form_errors(form.fecha) }}
-                        {{ form_widget(form.fecha,{'attr': {'class': ''}}) }}
+                        {{ form_widget(form.fecha) }}
                    </div>
 
                    <div class="input-group">
@@ -48,7 +48,7 @@
                         {{ form_errors(form.fuentes) }}
                         {{ form_widget(form.fuentes,{'attr': {'class': 'form-control fuentes'}}) }}
                    </div>
-                   <input class="btn btn-default" type="submit" value="Guardar" />
+                   
                   </div>
 
                 </div>
@@ -66,11 +66,13 @@
 
                 </div>
 
-                
+             </div>
 
+             <div class="row">   
+                <input class="btn btn-default" type="submit" value="Guardar" />
                 {{ form_end(form) }}
 
-        </div>
+              </div>
         
 
         </div>
@@ -89,8 +91,13 @@
   <script>
     tinymce.init({
       selector: '.fuentes',
-      height: 500,
+      height: 400,
       theme: 'modern',
+      setup: function (editor) {
+        editor.on('change', function () {
+            editor.save();
+        });
+      },
       plugins: [
         'advlist autolink lists link image charmap print preview hr anchor pagebreak',
         'searchreplace wordcount visualblocks visualchars code fullscreen',

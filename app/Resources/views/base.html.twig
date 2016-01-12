@@ -46,12 +46,28 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/"><img src="/img/logo.png" height="40"></a>
+            
           </div>
+
+          
+
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a class="nav-link {%if current=='timeline'%}current{%endif%}" href="/">Línea de Tiempo</a></li>
-              <li><a class="nav-link {%if current=='historia'%}current{%endif%}" href="/historia">Sobre este sitio</a></li>
+              <li><a class="nav-link {%if current=='timeline'%}current{%endif%}" href="/timeline">Línea de Tiempo</a></li>
+              <li>
+                <a class="nav-link {%if current=='historia'%}current{%endif%}" href="/historia">Sobre este sitio</a>
+              </li>
               <li><a class="nav-link {%if current=='contacto'%}current{%endif%}" href="/contacto">Contacto</a></li>
+                <li>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            ({{ app.user.username }}) Salir
+                        </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">login</a>
+                    {% endif %}
+                </li>
             </ul>
           </div>
         </div>
