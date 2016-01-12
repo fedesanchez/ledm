@@ -2,6 +2,8 @@
 
 
 {% block contenido %}
+{% block topic %}{% endblock %}
+
 
 {% set mes_anio = '' %}
 
@@ -38,19 +40,8 @@
 
 				  </dl>
           {% endfor %}
-
 			  </div>
-
 		  </div>
 		</div>
-
-        <div class="row ">
-            <div class="col-md-2 col-md-offsett-5">
-                <div class="center-block">
-                    <a class="btn btn-default" href="/timeline"> Ver más </a> 
-                </div>    
-             </div>
-        </div>
-
 
     {% endblock %}
