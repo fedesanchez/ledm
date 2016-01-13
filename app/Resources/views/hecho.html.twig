@@ -13,47 +13,76 @@
 
           <div class="jumbotron-contents">
 
-          <blockquote>
-                  <h2>{{hecho.titulo}}</h2>
-                  <small>{{hecho.fecha | date("d-m-Y") }}</small>
-          </blockquote>
+              <blockquote>
+                      <h2>{{hecho.titulo}}</h2>
+                      <small>{{hecho.fecha | date("d-m-Y") }}</small>
+              </blockquote>
 
 
 
-            <p>
-              {{hecho.resumen}}
-            </p>
+                <p>
+                  {{hecho.resumen}}
+                </p>
+          </div>
+
             {% if hecho.imagen | length > 1%}
             <div class="jumbotron-photo"><img src="{{hecho.imagen}}"></div>
             {% endif %}
             <br/>
-            <p>
-              {{hecho.fuentes | raw}}
-            </p>
-            
 
-          </div>
+            <div class="jumbotron-contents">
+              <p>
+                {{hecho.fuentes | raw}}
+              </p>
+
+            </div>
+
         </div>
       </div>
 
-     <div class="col-md-4">
-       <div class="jumbotron">
-        <h4>Relacionados</h4>
-        <ul>
-          {% for rel in relacionados%}
-           <li>
-            <a href="/mostrar/{{rel.fecha|date("d-m-Y")}}/{{ rel.getSlug() }}">{{rel.titulo}}</a>
-           </li> 
-          {% endfor %}  
-        </ul>
-       </div> 
-     </div>
+       <div class="col-md-4">
+
+         <div class="panel-group panel-group-lists" id="accordion2">
+              {% for rel in relacionados%}
+              <div class="panel">
+
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion2" href="#rel-{{rel.id}}">
+                      {{rel.titulo}}
+                    </a>
+                  </h4>
+                </div>
+
+                <div id="rel-{{rel.id}}" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p>
+                      {{ rel.resumen }}
+                    </p>
+                    <div class="row">
+                      <a class="btn btn-default pull-right" href="/mostrar/{{rel.fecha|date("d-m-Y")}}/{{ rel.getSlug() }}">ver nota</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              {% endfor %}
+        </div>
+
+
+
+
+
+      </div>
+
+
 
 	</div>
+
   <div class="row">
       <p>
         {% for tag in hecho.tags%}
-        <a class="btn btn-primary" href="#">{{ tag.nombre }}</a>              
+        <a class="btn btn-primary" href="#">{{ tag.nombre }}</a>
         {% endfor%}
       </p>
   </div>

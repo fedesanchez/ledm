@@ -1,3 +1,15 @@
+body{
+      background-color: rgb(241, 242, 246);
+}
+
+
+.jumbotron>.jumbotron-photo img {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+}
+
 .principal{
   height: auto;
 }
@@ -5,9 +17,7 @@
 .fuentes{
   min-height: 300px;
 }
-.panel {
-  margin-top: 20px;
-}
+
 
 .input-group {
     border-collapse: separate;
@@ -24,7 +34,32 @@
   min-height: 400px !important;
 }
 
-.timeline{
-  max-height: 600px !important;  
 
+
+.ver_mas {
+    position: relative;
+    top: 30px;
+    z-index: 200;
+    width: 120px;
+    padding: 3px 5px;
+    margin: 0 auto 30px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background-color: #aab2bd;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.ver_mas a{
+  color: white;
+}
+
+.ver_mas:hover{
+  background-color: #AAB18F;
+}
+
+.pull-right {
+    margin-right: 10px;
 }

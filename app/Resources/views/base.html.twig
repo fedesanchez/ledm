@@ -2,7 +2,7 @@
 <html>
     <head>
     <meta charset="utf-8">
-   <title>{% block title %}La era de Mauri{% endblock %}</title>
+   <title>{% block title %}La Era de Mauri{% endblock %}</title>
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- SmartAddon.com Verification -->
@@ -46,10 +46,10 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/"><img src="/img/logo.png" height="40"></a>
-            
+
           </div>
 
-          
+
 
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -60,7 +60,7 @@
               <li><a class="nav-link {%if current=='contacto'%}current{%endif%}" href="/contacto">Contacto</a></li>
                 <li>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        
+
                         <a href="{{ path('fos_user_security_logout') }}">
                             ({{ app.user.username }}) Salir
                         </a>
@@ -76,7 +76,7 @@
       <div class="topic">
         <div class="container">
             <div class="col-md-8">
-              <h3>La era de Mauri</h3>
+              <h3>La Era de Mauri</h3>
               <h4>La intención es dejar registrado cada hecho importante con un resumen de como lo cubren los distintos medios tratando de ser lo mas objetivo posible</h4>
             </div>
 
@@ -92,7 +92,7 @@
 
     <!--header-->
       <div class="container documents">
-         <div class="example contenido">        
+         <div class="example contenido">
          {% block contenido %}{% endblock %}
          </div>
       </div>
