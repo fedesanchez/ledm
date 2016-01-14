@@ -13,5 +13,10 @@ app_tag:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+ef_connect:
+    path:  /efconnect/{instance}/{homeFolder}
+    defaults: { _controller: FMElfinderBundle:ElFinder:load, instance: default, homeFolder: '' }
+    
 elfinder:
-     resource: "@FMElfinderBundle/Resources/config/routing.yml"    
+    path: /files/{instance}/{homeFolder}
+    defaults: { _controller: FMElfinderBundle:ElFinder:show, instance: default, homeFolder: '' }
