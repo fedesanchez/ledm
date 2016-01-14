@@ -72,3 +72,27 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: AppBundle\Entity\Usuario
+
+fm_elfinder:
+    instances:
+        default:
+            locale: %locale% # defaults to current request locale
+            editor: ckeditor # other options are tinymce, tinymce4, fm_tinymce,  form, simple, custom
+            #editor_template: set custom template for your editor # default null
+            #path_prefix: / # for setting custom assets path prefix, useful for non vhost configurations, i.e. http://127.0.0.1/mysite/
+            #fullscreen: true|false # defaults true, applies to simple and ckeditor editors
+            #theme: smoothness # jquery theme, default is 'smoothness'
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            #visible_mime_types: ['image/png', 'image/jpg', 'image/jpeg'] # only show these mime types, defaults to show all
+            connector:
+                #debug: true|false # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        #show_hidden: true|false # defaults to false, hide files that
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M
+                        #attributes: example of setting attributes permission
+                        #    - { pattern: '/(.*?)/', read: true, write: false, locked: true }    

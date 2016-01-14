@@ -39,13 +39,17 @@
 
  </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('hecho_new') }}">Agregar hecho</a>
-        </li>
-        <li>
-            <a href="{{ path('tag_index') }}">Administrar Tags</a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="pull-left">
+            <a class="btn btn-default" href="{{ path('hecho_new') }}">Agregar hecho</a>
+        </div>
+
+        <div class="pull-right">
+            <a class="btn btn-default" href="{{ path('tag_index') }}">Administrar Tags</a>
+
+            <a class="btn btn-default" target="_blank" href="{{ path('elfinder') }}">Administrar Archivos</a>
+        </div>
+
+    </div>
 
 {% endblock %}
