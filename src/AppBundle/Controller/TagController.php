@@ -42,8 +42,7 @@ class TagController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            try {
-              dump("entrp");
+            try {            
               $em->persist($tag);
               $em->flush();
             } catch (Exception $e) {
