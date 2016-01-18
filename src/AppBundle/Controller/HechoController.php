@@ -90,7 +90,7 @@ class HechoController extends Controller
             $em->persist($hecho);
             $em->flush();
 
-            return $this->redirectToRoute('hecho_edit', array());
+            return $this->redirectToRoute('hecho_index');
         }
 
         return $this->render('hecho/edit.html.twig', array(
