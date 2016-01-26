@@ -82,7 +82,8 @@
   <div class="row">
       <p>
         {% for tag in hecho.tags%}
-        <a class="btn btn-primary" href="#">{{ tag.nombre }}</a>
+        {% set param = tag.nombre|replace({'#': ''}) %}
+        <a class="btn btn-primary" href="{{ path('tags',{tag:param}) }}/">{{ tag.nombre }}</a>
         {% endfor%}
       </p>
   </div>

@@ -4,11 +4,11 @@ app:
 
 app_hecho:
     resource: "@AppBundle/Resources/config/routing/hecho.xml"
-    prefix:   /hecho
+    prefix:   /admin/hecho
 
 app_tag:
         resource: "@AppBundle/Resources/config/routing/tag.xml"
-        prefix:   /tag
+        prefix:   /admin/tag
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
@@ -16,7 +16,7 @@ fos_user:
 ef_connect:
     path:  /efconnect/{instance}/{homeFolder}
     defaults: { _controller: FMElfinderBundle:ElFinder:load, instance: default, homeFolder: '' }
-    
+
 elfinder:
     path: /files/{instance}/{homeFolder}
     defaults: { _controller: FMElfinderBundle:ElFinder:show, instance: default, homeFolder: '' }

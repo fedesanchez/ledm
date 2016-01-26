@@ -17,7 +17,7 @@ class DefaultController extends Controller
 
       $hechos = $em->getRepository('AppBundle:Hecho')->findBy(
           array(),
-          array('fecha'=>'desc'), 
+          array('fecha'=>'desc'),
           10,
           null
       );
@@ -37,7 +37,7 @@ class DefaultController extends Controller
 
       $hechos = $em->getRepository('AppBundle:Hecho')->findBy(
           array(),
-          array('fecha'=>'desc'), 
+          array('fecha'=>'desc'),
           null,
           null
       );
@@ -63,7 +63,7 @@ class DefaultController extends Controller
         if( $titulo == $hecho->getSlug() && $fecha == $hecho->getFecha()->format('d-m-Y')){
           $item=$hecho;
           break;
-        } 
+        }
       }
 
       if(!$item){
@@ -103,6 +103,29 @@ class DefaultController extends Controller
       return $this->render('contacto.html.twig', array('current'=>'contacto',));
 
 
+    }
+
+    /**
+     * @Route("/tags/{tag}/", name="tags")
+     */
+    public function tagsAction($tag)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $hechos = $em->getRepository('AppBundle:Hecho')->findAll();
+      $hechosTag=array();
+
+      foreach ($hechos as $hecho) {
+        if( in_array('#'.$tag,$hecho->getTags()->toArray())){
+          $hechosTag[]=$hecho;
+        }
+      }
+
+
+      return $this->render('timeline.html.twig', array(
+          'hechos' => $hechosTag,
+          'current'=>'',
+      ));
     }
 
 
